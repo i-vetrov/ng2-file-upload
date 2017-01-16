@@ -35,7 +35,11 @@ export class FileItem {
       this.method = uploader.options.method || 'POST';
       this.alias = uploader.options.itemAlias || 'file';
     }
-    this.url = uploader.options.url;
+    if(options.url) {
+      this.url = options.url;
+    } else {
+      this.url = uploader.options.url;
+    }
   }
 
   public upload():void {
